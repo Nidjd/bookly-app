@@ -1,8 +1,9 @@
 import 'package:flutter/cupertino.dart';
-
+import 'package:flutter/material.dart';
 import '../../../../../constants.dart';
 import '../../../../../core/utils/assets.dart';
 import '../../../../../core/utils/styles.dart';
+import 'book_rating.dart';
 
 class BestSellerListViewItem extends StatelessWidget {
   const BestSellerListViewItem({super.key});
@@ -18,7 +19,7 @@ class BestSellerListViewItem extends StatelessWidget {
             child: Container(
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(8),
-                image:  const DecorationImage(
+                image: const DecorationImage(
                   fit: BoxFit.fill,
                   image: AssetImage(AssetsData.testImage),
                 ),
@@ -28,41 +29,47 @@ class BestSellerListViewItem extends StatelessWidget {
           const SizedBox(
             width: 30,
           ),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              SizedBox(
-                width: MediaQuery.of(context).size.width * 0.5,
-                child: Text(
-                  'Harry Potter and the Goblet of Fire',
-                  style: Styles.textStyle20.copyWith(fontFamily: kGTSectraFine),
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
-                ),
-              ),
-              const SizedBox(
-                height: 3,
-              ),
-              const Text(
-                'J.K. Rowling',
-                style: Styles.textStyle14,
-              ),
-              const SizedBox(
-                height: 3,
-              ),
-              Row(
-                children: [
-                  Text(
-                    '19.99 €',
-                    style: Styles.textStyle20
-                        .copyWith(fontWeight: FontWeight.bold),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SizedBox(
+                  width: MediaQuery.of(context).size.width * 0.5,
+                  child: Text(
+                    'Harry Potter and the Goblet of Fire',
+                    style:
+                        Styles.textStyle20.copyWith(fontFamily: kGTSectraFine),
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
                   ),
-                ],
-              ),
-            ],
+                ),
+                const SizedBox(
+                  height: 3,
+                ),
+                const Text(
+                  'J.K. Rowling',
+                  style: Styles.textStyle14,
+                ),
+                const SizedBox(
+                  height: 3,
+                ),
+                Row(
+                  children: [
+                    Text(
+                      '19.99 €',
+                      style: Styles.textStyle20
+                          .copyWith(fontWeight: FontWeight.bold),
+                    ),
+                    const Spacer(),
+                    const BooksRating(),
+                  ],
+                ),
+              ],
+            ),
           ),
         ],
       ),
     );
   }
 }
+
